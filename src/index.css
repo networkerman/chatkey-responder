@@ -1,10 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -13,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 210 79% 46%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -22,8 +25,8 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 79% 46%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -36,15 +39,15 @@
 
     --sidebar-background: 0 0% 98%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 210 79% 46%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 210 79% 46%;
 
     --sidebar-primary-foreground: 0 0% 98%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 210 79% 46%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 210 40% 98%;
 
     --sidebar-border: 220 13% 91%;
 
@@ -96,6 +99,69 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  /* Glass morphism styles */
+  .glass {
+    @apply bg-white/60 backdrop-blur-glass rounded-lg border border-white/20 shadow-glass;
+  }
+
+  .glass-card {
+    @apply glass transition-all duration-300 hover:shadow-glass-hover;
+  }
+
+  /* Animation utilities */
+  .animate-on-load {
+    @apply opacity-0 animate-fade-in;
+    animation-fill-mode: forwards;
+    animation-delay: 0.1s;
+  }
+
+  .stagger-1 {
+    animation-delay: 0.1s;
+  }
+
+  .stagger-2 {
+    animation-delay: 0.2s;
+  }
+
+  .stagger-3 {
+    animation-delay: 0.3s;
+  }
+
+  /* WhatsApp style messages */
+  .chat-bubble {
+    @apply relative p-3 rounded-lg max-w-[80%] mb-1;
+  }
+
+  .chat-bubble-tail::after {
+    content: "";
+    @apply absolute w-4 h-4 bottom-0;
+  }
+
+  .chat-received {
+    @apply bg-netcore-chat-bg text-gray-800;
+  }
+
+  .chat-received.chat-bubble-tail::after {
+    @apply left-0 -translate-x-2 bg-netcore-chat-bg;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+  }
+
+  .chat-sent {
+    @apply bg-netcore-chat-sent text-gray-800 ml-auto;
+  }
+
+  .chat-sent.chat-bubble-tail::after {
+    @apply right-0 translate-x-2 bg-netcore-chat-sent;
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+  }
+
+  /* Quick Reply Buttons */
+  .quick-reply-btn {
+    @apply bg-netcore-blue text-white px-4 py-2 rounded-full text-sm font-medium 
+           transition-all duration-300 hover:bg-netcore-dark-blue;
   }
 }
