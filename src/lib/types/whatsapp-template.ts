@@ -55,6 +55,6 @@ export interface WhatsAppTemplate {
   status: TemplateStatus;
   createdAt: string;
   updatedAt: string;
-  languages: Record<Language, TemplateLanguageContent>;
+  languages: Partial<Record<Language, TemplateLanguageContent>>;
   isArchived?: boolean;
 }

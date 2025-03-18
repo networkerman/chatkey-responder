@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
-import { WhatsAppTemplate, Language } from "@/lib/types/whatsapp-template";
+import { WhatsAppTemplate } from "@/lib/types/whatsapp-template";
+import { Language } from "@/lib/types";
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import PreviewHeader from "./preview/PreviewHeader";
@@ -14,13 +15,14 @@ interface TemplatePreviewProps {
 }
 
 const TemplatePreview: React.FC<TemplatePreviewProps> = ({ template }) => {
-  const [selectedLanguage, setSelectedLanguage] = useState<Language>(
-    Object.keys(template.languages)[0] as Language
-  );
+  const availableLanguages = Object.keys(template.languages) as Language[];
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(availableLanguages[0]);
 
   const content = template.languages[selectedLanguage];
   
-  const availableLanguages = Object.keys(template.languages) as Language[];
+  if (!content) {
+    return <div className="text-center text-muted-foreground">No content available for the selected language</div>;
+  }
 
   return (
     <div className="space-y-4">
