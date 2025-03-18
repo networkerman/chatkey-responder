@@ -9,6 +9,7 @@ import LiveFeed from "./pages/LiveFeed";
 import NotFound from "./pages/NotFound";
 import SettingsIndex from "./pages/settings/index";
 import AutoreplySettings from "./pages/settings/autoreply";
+import TemplatesPage from "./pages/templates/index";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/live-feed" element={<LiveFeed />} />
+          <Route path="/templates" element={<TemplatesPage />} />
           <Route path="/settings" element={<SettingsIndex />} />
           <Route path="/settings/autoreply" element={<AutoreplySettings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

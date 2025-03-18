@@ -69,11 +69,14 @@ export default {
 					'dark-blue': '#0747A6',
 					gray: '#F4F5F7',
 					'dark-gray': '#6B778C',
-					green: '#36B37E',
+					green: '#00A859',
 					red: '#FF5630',
 					yellow: '#FFAB00',
 					'chat-bg': '#E5F6FD',
 					'chat-sent': '#DCF8C6',
+					dark: '#1F3C43',
+					light: '#E4F4F4',
+					accent: '#FF6F61'
 				}
 			},
 			borderRadius: {
